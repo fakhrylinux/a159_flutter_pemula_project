@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('HomePage'),
       ),
+      // TODO: change the widget below and add a Google office list
       body: const Center(child: Text('This is a text.')),
     );
   }

@@ -1,3 +1,4 @@
+/// NOTE: Kamu tidak perlu mengubah file ini.
 class GoogleOffice {
   final String id;
   final String address;
