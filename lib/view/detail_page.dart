@@ -16,6 +16,7 @@ class DetailPage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('DetailPage'),
       ),
+      // TODO 2: change the widget below and add the selected Google office details
       body: const Center(child: Text('This is a text.')),
     );
   }
