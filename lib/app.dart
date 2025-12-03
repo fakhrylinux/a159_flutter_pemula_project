@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pemula_project/view/home_page.dart';
 
-/// NOTE: Kamu tidak perlu mengubah file ini.
 class SubmissionApp extends StatelessWidget {
   const SubmissionApp({super.key});
 
