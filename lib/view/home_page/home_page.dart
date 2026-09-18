@@ -56,9 +56,7 @@ class _HomePageState extends State<HomePage> {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
       child: TextField(
-        onChanged: (query) {
-          _filterOffices(query);
-        },
+        onChanged: (query) => _filterOffices(query),
         textInputAction: TextInputAction.search,
         decoration: InputDecoration(
           hintText: 'Cari kantor Google (nama / alamat)...',
@@ -100,24 +98,7 @@ class _HomePageState extends State<HomePage> {
         },
       ),
     );
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (context) {
-    //       return DetailPage(googleOfficeId: googleOfficeId);
-    //     },
-    //   ),
-    // );
   }
-
-  // Route<void> _createRoute() {
-  //   return PageRouteBuilder(
-  //     pageBuilder: (context, animation, secondaryAnimation) => const Page2(),
-  //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-  //       return child;
-  //     },
-  //   );
-  // }
 
   void _filterOffices(String query) {
     setState(() {

@@ -29,49 +29,9 @@ class DetailBody extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Container(
-                        height: 220,
-                        width: double.infinity,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          border: Border.all(color: const Color(0x331A73E8)),
-                          gradient: const LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [Color(0xFFE3F2FD), Color(0xFFBBDEFB)],
-                          ),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color(0x26000000),
-                              blurRadius: 12,
-                              offset: Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Image.network(
-                          googleOffice.image,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) =>
-                              const Center(
-                                child: Icon(
-                                  Icons.business,
-                                  size: 64,
-                                  color: Color(0xFF1A73E8),
-                                ),
-                              ),
-                        ),
-                      ),
+                      _buildHeroImage(),
                       const SizedBox(height: 20),
-                      Text(
-                        'Kantor Google ${googleOffice.name}',
-                        style: Theme.of(context).textTheme.headlineSmall
-                            ?.copyWith(
-                              fontFamily: GoogleFonts.ubuntu().fontFamily,
-                              fontWeight: FontWeight.bold,
-                              color: const Color(0xFF202124),
-                            ),
-                      ),
+                      _buildOfficeTitle(context),
                       const SizedBox(height: 12),
                       _infoRow(Icons.map_outlined, googleOffice.address),
                       _infoRow(
@@ -89,6 +49,48 @@ class DetailBody extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Text _buildOfficeTitle(BuildContext context) {
+    return Text(
+      'Kantor Google ${googleOffice.name}',
+      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+        fontFamily: GoogleFonts.ubuntu().fontFamily,
+        fontWeight: FontWeight.bold,
+        color: const Color(0xFF202124),
+      ),
+    );
+  }
+
+  Container _buildHeroImage() {
+    return Container(
+      height: 220,
+      width: double.infinity,
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: const Color(0x331A73E8)),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFFE3F2FD), Color(0xFFBBDEFB)],
+        ),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x26000000),
+            blurRadius: 12,
+            offset: Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Image.network(
+        googleOffice.image,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) => const Center(
+          child: Icon(Icons.business, size: 64, color: Color(0xFF1A73E8)),
+        ),
+      ),
     );
   }
 

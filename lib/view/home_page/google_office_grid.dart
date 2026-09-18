@@ -20,6 +20,7 @@ class GoogleOfficeGrid extends StatelessWidget {
         maxCrossAxisExtent: 420,
         childAspectRatio: 0.95,
       ),
+      itemCount: filteredOffices.length,
       itemBuilder: (context, index) {
         final googleOffice = filteredOffices[index];
         return GoogleOfficeCard(
@@ -27,7 +28,6 @@ class GoogleOfficeGrid extends StatelessWidget {
           onTap: () => navigateToDetailPage(context, googleOffice.id),
         );
       },
-      itemCount: listOfGoogleOffice.length,
     );
   }
 }
