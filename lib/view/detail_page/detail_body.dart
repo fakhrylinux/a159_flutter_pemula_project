@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../model/google_office.dart';
 
@@ -66,22 +67,20 @@ class DetailBody extends StatelessWidget {
                         'Kantor Google ${googleOffice.name}',
                         style: Theme.of(context).textTheme.headlineSmall
                             ?.copyWith(
+                              fontFamily: GoogleFonts.ubuntu().fontFamily,
                               fontWeight: FontWeight.bold,
                               color: const Color(0xFF202124),
                             ),
                       ),
                       const SizedBox(height: 12),
+                      _infoRow(Icons.map_outlined, googleOffice.address),
                       _infoRow(
                         Icons.location_on_outlined,
-                        googleOffice.address,
+                        'Lat: ${googleOffice.lat.toStringAsFixed(4)}, '
+                        'Long: ${googleOffice.lng.toStringAsFixed(4)}',
                       ),
                       _infoRow(Icons.call_outlined, googleOffice.phone),
-                      _infoRow(
-                        Icons.public,
-                        'Region ${googleOffice.region} '
-                        '(${googleOffice.lat.toStringAsFixed(4)}, '
-                        '${googleOffice.lng.toStringAsFixed(4)})',
-                      ),
+                      _infoRow(Icons.public, 'Region ${googleOffice.region} '),
                     ],
                   ),
                 ),
