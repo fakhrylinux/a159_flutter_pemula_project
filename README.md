@@ -11,7 +11,7 @@ Untuk menyelesaikan kelas ini, Anda perlu mengerjakan Submission sebagai bentuk 
 Ada pun informasi penting yang berguna ketika mengerjakan submission ini.
 
 1. Anda tidak perlu mengubah susunan folder yang ada di starter project ini.
-2. Untuk menyelesaikan submisison ini, Anda cukup mengubah kode yang ada di berkas [home_page.dart](lib/view/home_page.dart) dan [detail_page.dart](lib/view/detail_page.dart). Fokuslah pada kode yang sudah ditandai sebagai `TODO`.
+2. Untuk menyelesaikan submisison ini, Anda cukup mengubah kode yang ada di berkas [home_page.dart](lib/view/home_page/home_page.dart) dan [detail_page.dart](lib/view/detail_page/detail_page.dart). Fokuslah pada kode yang sudah ditandai sebagai `TODO`.
 3. Ketika sedang mengembangkan fitur halaman detail, Anda tidak perlu mengubah  properties `googleOffice` dan `googleOfficeId` serta constructor `DetailPage`. Ini menjadi tantangan Anda untuk menyelesaikan submission kelas.
 
     ```dart
