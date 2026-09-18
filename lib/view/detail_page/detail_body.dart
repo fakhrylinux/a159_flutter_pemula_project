@@ -9,80 +9,85 @@ class DetailBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
-        SingleChildScrollView(
-          child: Center(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 200),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 64, 20, 32),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Container(
-                      height: 220,
-                      width: double.infinity,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: const Color(0x331A73E8)),
-                        gradient: const LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [Color(0xFFE3F2FD), Color(0xFFBBDEFB)],
-                        ),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color(0x26000000),
-                            blurRadius: 12,
-                            offset: Offset(0, 4),
+        AppBar(
+          title: Text(googleOffice.name),
+          leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(Icons.arrow_back),
+          ),
+        ),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 900),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 24, 20, 32),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Container(
+                        height: 220,
+                        width: double.infinity,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(color: const Color(0x331A73E8)),
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [Color(0xFFE3F2FD), Color(0xFFBBDEFB)],
                           ),
-                        ],
-                      ),
-                      child: Image.network(
-                        googleOffice.image,
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) =>
-                            const Center(
-                              child: Icon(
-                                Icons.business,
-                                size: 64,
-                                color: Color(0xFF1A73E8),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color(0x26000000),
+                              blurRadius: 12,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: Image.network(
+                          googleOffice.image,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) =>
+                              const Center(
+                                child: Icon(
+                                  Icons.business,
+                                  size: 64,
+                                  color: Color(0xFF1A73E8),
+                                ),
                               ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        'Kantor Google ${googleOffice.name}',
+                        style: Theme.of(context).textTheme.headlineSmall
+                            ?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: const Color(0xFF202124),
                             ),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      'Kantor Google ${googleOffice.name}',
-                      style: Theme.of(context).textTheme.headlineSmall
-                          ?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: const Color(0xFF202124),
-                          ),
-                    ),
-                    const SizedBox(height: 12),
-                    _infoRow(Icons.location_on_outlined, googleOffice.address),
-                    _infoRow(Icons.call_outlined, googleOffice.phone),
-                    _infoRow(
-                      Icons.public,
-                      'Region ${googleOffice.region}'
-                      '(${googleOffice.lat.toStringAsFixed(4)}, '
-                      '${googleOffice.lng.toStringAsFixed(4)})',
-                    ),
-                  ],
+                      const SizedBox(height: 12),
+                      _infoRow(
+                        Icons.location_on_outlined,
+                        googleOffice.address,
+                      ),
+                      _infoRow(Icons.call_outlined, googleOffice.phone),
+                      _infoRow(
+                        Icons.public,
+                        'Region ${googleOffice.region} '
+                        '(${googleOffice.lat.toStringAsFixed(4)}, '
+                        '${googleOffice.lng.toStringAsFixed(4)})',
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-        // Image.network(googleOffice.image),
-        IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back),
-          color: Colors.white,
-          style: IconButton.styleFrom(backgroundColor: Colors.grey),
         ),
       ],
     );
