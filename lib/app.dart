@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pemula_project/view/home_page/home_page.dart';
+import 'package:flutter_pemula_project/view/home_page.dart';
 
 class SubmissionApp extends StatelessWidget {
   const SubmissionApp({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../model/google_office.dart';
-import '../detail_page/detail_page.dart';
-import 'google_office_grid.dart';
-import 'google_office_list.dart';
+import '../model/google_office.dart';
+import 'detail_page.dart';
+import 'home_page/google_office_grid.dart';
+import 'home_page/google_office_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../model/google_office.dart';
-import 'detail_body.dart';
+import '../model/google_office.dart';
+import 'detail_page/detail_body.dart';
 
 class DetailPage extends StatelessWidget {
   final GoogleOffice googleOffice;
