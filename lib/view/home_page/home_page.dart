@@ -83,15 +83,41 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _navigateToDetailPage(BuildContext context, String googleOfficeId) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return DetailPage(googleOfficeId: googleOfficeId);
+    Navigator.of(context).push(
+      PageRouteBuilder(
+        pageBuilder: (_, _, _) => DetailPage(googleOfficeId: googleOfficeId),
+        transitionsBuilder: (_, animation, _, child) {
+          const begin = Offset(0.0, 1.0);
+          const end = Offset.zero;
+
+          final tween = Tween(
+            begin: begin,
+            end: end,
+          ).chain(CurveTween(curve: Curves.easeInOut));
+          final offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
         },
       ),
     );
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (context) {
+    //       return DetailPage(googleOfficeId: googleOfficeId);
+    //     },
+    //   ),
+    // );
   }
+
+  // Route<void> _createRoute() {
+  //   return PageRouteBuilder(
+  //     pageBuilder: (context, animation, secondaryAnimation) => const Page2(),
+  //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+  //       return child;
+  //     },
+  //   );
+  // }
 
   void _filterOffices(String query) {
     setState(() {
