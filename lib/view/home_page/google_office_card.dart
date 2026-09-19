@@ -39,6 +39,7 @@ class GoogleOfficeCard extends StatelessWidget {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
+                fontFamily: "Ubuntu",
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFF202124),

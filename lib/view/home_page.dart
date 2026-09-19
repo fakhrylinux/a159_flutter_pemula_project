@@ -21,8 +21,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsetsGeometry.fromLTRB(16, 16, 16, 0),
+          ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: 900),
             child: _buildSearchBar(),
           ),
           Expanded(
@@ -65,7 +65,6 @@ class _HomePageState extends State<HomePage> {
           fillColor: Colors.white,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(28),
-            borderSide: BorderSide.none,
           ),
           contentPadding: const EdgeInsets.symmetric(vertical: 14),
           prefixIcon: const Icon(Icons.search, color: Color(0xFF5F6368)),
